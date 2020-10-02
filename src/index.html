@@ -9,6 +9,15 @@
     <script nomodule src="/build/stencil-events-example.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <my-form></my-form>
+    <hr />
+    <script>
+      var formEl = document.querySelector('my-form');
+      formEl.addEventListener('formSubmitted', function (e) {
+        var newDiv = document.createElement('div');
+        newDiv.innerHTML = 'We have received the data by listening the "formSubmitted" event! ' + JSON.stringify(e.detail);
+        document.body.append(newDiv);
+      })
+    </script>
   </body>
 </html>
